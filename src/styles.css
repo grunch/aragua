@@ -108,6 +108,62 @@ body {
   transition: background-image 0.3s ease;
 }
 
+/* Placeholder difuminado (blur-up) + shimmer mientras carga la foto real.
+   Se dibuja sobre el fondo y se desvanece al terminar la carga. */
+.viewer__skeleton {
+  position: absolute;
+  inset: 0;
+  background-color: var(--surface-2);
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px);
+  transform: scale(1.08); /* oculta los bordes que deja el blur */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.viewer__skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.09) 50%,
+    transparent 80%
+  );
+  background-size: 220% 100%;
+  animation: viewer-shimmer 1.5s linear infinite;
+}
+.viewer__skeleton.is-loaded {
+  opacity: 0;
+}
+.viewer__skeleton.is-loaded::after {
+  animation: none;
+}
+@keyframes viewer-shimmer {
+  from {
+    background-position: 220% 0;
+  }
+  to {
+    background-position: -220% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .viewer__skeleton::after {
+    animation: none;
+  }
+}
+
+/* Imagen oculta usada sólo para detectar el evento de carga. */
+.viewer__loader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .viewer__caption {
   position: absolute;
   left: 0;

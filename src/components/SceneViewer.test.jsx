@@ -15,6 +15,7 @@ const sceneSingle = {
   title: 'Baño',
   subtitle: 'Completo',
   images: ['scenes/bano-1.jpg'],
+  thumb: 'scenes/bano-thumb.jpg',
   hotspots: [],
 }
 
@@ -54,5 +55,36 @@ describe('SceneViewer', () => {
       screen.getByRole('button', { name: 'Siguiente foto de la habitación' })
     )
     expect(dots[1]).toHaveAttribute('aria-selected', 'true')
+  })
+
+  it('muestra el esqueleto (blur) mientras la imagen no ha cargado', () => {
+    const { container } = render(
+      <SceneViewer scene={sceneSingle} onNavigate={() => {}} />
+    )
+    const skeleton = container.querySelector('.viewer__skeleton')
+    expect(skeleton).toBeInTheDocument()
+    expect(skeleton).not.toHaveClass('is-loaded')
+    // Usa la miniatura como placeholder difuminado.
+    expect(skeleton.style.backgroundImage).toContain('bano-thumb.jpg')
+  })
+
+  it('oculta el esqueleto cuando la imagen termina de cargar', () => {
+    const { container } = render(
+      <SceneViewer scene={sceneSingle} onNavigate={() => {}} />
+    )
+    const loader = container.querySelector('.viewer__loader')
+    fireEvent.load(loader)
+    expect(container.querySelector('.viewer__skeleton')).toHaveClass('is-loaded')
+  })
+
+  it('vuelve a mostrar el esqueleto al cambiar de habitación', () => {
+    const { container, rerender } = render(
+      <SceneViewer scene={sceneSingle} onNavigate={() => {}} />
+    )
+    fireEvent.load(container.querySelector('.viewer__loader'))
+    expect(container.querySelector('.viewer__skeleton')).toHaveClass('is-loaded')
+
+    rerender(<SceneViewer scene={sceneWithGallery} onNavigate={() => {}} />)
+    expect(container.querySelector('.viewer__skeleton')).not.toHaveClass('is-loaded')
   })
 })

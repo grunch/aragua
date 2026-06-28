@@ -8,6 +8,9 @@ import { useEffect, useState } from 'react'
  */
 export default function SceneViewer({ scene, onNavigate }) {
   const [imageIndex, setImageIndex] = useState(scene.startIndex ?? 0)
+  // ¿La foto actual (alta resolución) ya cargó? Mientras no, mostramos un
+  // placeholder difuminado (la miniatura) con efecto shimmer.
+  const [loaded, setLoaded] = useState(false)
 
   // Al cambiar de habitación, mostrar su imagen inicial (cover o la primera).
   useEffect(() => {
@@ -17,6 +20,11 @@ export default function SceneViewer({ scene, onNavigate }) {
   const images = scene.images
   const hasGallery = images.length > 1
   const currentImage = images[imageIndex]
+
+  // Reiniciar el estado de carga cada vez que cambia la foto mostrada.
+  useEffect(() => {
+    setLoaded(false)
+  }, [currentImage])
 
   function showImage(nextIndex) {
     const total = images.length
@@ -31,6 +39,22 @@ export default function SceneViewer({ scene, onNavigate }) {
         role="img"
         aria-label={`${scene.title}. ${scene.subtitle}`}
       >
+        {/* Placeholder difuminado (blur-up) + shimmer hasta que carga la foto */}
+        <div
+          className={`viewer__skeleton ${loaded ? 'is-loaded' : ''}`}
+          style={scene.thumb ? { backgroundImage: `url(${scene.thumb})` } : undefined}
+          aria-hidden="true"
+        />
+        {/* Detector de carga: img oculta que dispara onLoad de la foto real */}
+        <img
+          className="viewer__loader"
+          src={currentImage}
+          alt=""
+          aria-hidden="true"
+          onLoad={() => setLoaded(true)}
+          onError={() => setLoaded(true)}
+        />
+
         {/* Hotspots de navegación entre habitaciones */}
         {scene.hotspots.map((h) => (
           <button
