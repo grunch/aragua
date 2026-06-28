@@ -1,0 +1,92 @@
+{
+  "cocina": {
+    "images": [
+      "scenes/cocina/frame_0115-hires.png",
+      "scenes/cocina/frame_0116-hires.png",
+      "scenes/cocina/frame_0117-hires.png",
+      "scenes/cocina/frame_0118-hires.png",
+      "scenes/cocina/frame_0119-hires.png",
+      "scenes/cocina/frame_0120-hires.png",
+      "scenes/cocina/frame_0123-hires.png"
+    ],
+    "thumb": "scenes/cocina/_thumb.jpg"
+  },
+  "cuarto-1": {
+    "images": [
+      "scenes/cuarto-1/frame_0016.jpg",
+      "scenes/cuarto-1/frame_0020.jpg",
+      "scenes/cuarto-1/frame_0021.jpg",
+      "scenes/cuarto-1/frame_0022.jpg",
+      "scenes/cuarto-1/frame_0044.jpg",
+      "scenes/cuarto-1/frame_0046.jpg",
+      "scenes/cuarto-1/frame_0047.jpg"
+    ],
+    "thumb": "scenes/cuarto-1/_thumb.jpg"
+  },
+  "cuarto-2": {
+    "images": [
+      "scenes/cuarto-2/frame_0029.jpg",
+      "scenes/cuarto-2/frame_0031.jpg",
+      "scenes/cuarto-2/frame_0033.jpg",
+      "scenes/cuarto-2/frame_0034.jpg",
+      "scenes/cuarto-2/frame_0037.jpg",
+      "scenes/cuarto-2/frame_0038.jpg",
+      "scenes/cuarto-2/frame_0039.jpg",
+      "scenes/cuarto-2/frame_0040.jpg"
+    ],
+    "thumb": "scenes/cuarto-2/_thumb.jpg"
+  },
+  "cuarto-3": {
+    "images": [],
+    "thumb": null
+  },
+  "cuarto-4": {
+    "images": [],
+    "thumb": null
+  },
+  "galeria": {
+    "images": [
+      "scenes/galeria/01.png",
+      "scenes/galeria/02.png",
+      "scenes/galeria/03.png",
+      "scenes/galeria/04.png",
+      "scenes/galeria/05.png",
+      "scenes/galeria/06.png"
+    ],
+    "thumb": "scenes/galeria/_thumb.jpg"
+  },
+  "jardin-central": {
+    "images": [
+      "scenes/jardin-central/01.png",
+      "scenes/jardin-central/02.png"
+    ],
+    "thumb": "scenes/jardin-central/_thumb.jpg"
+  },
+  "lavadero": {
+    "images": [
+      "scenes/lavadero/01.png",
+      "scenes/lavadero/02.png",
+      "scenes/lavadero/03.png"
+    ],
+    "thumb": "scenes/lavadero/_thumb.jpg"
+  },
+  "living": {
+    "images": [
+      "scenes/living/frame_0001.png",
+      "scenes/living/frame_0004.jpg",
+      "scenes/living/frame_0005.jpg",
+      "scenes/living/frame_0006.jpg",
+      "scenes/living/frame_0008.jpg",
+      "scenes/living/frame_0010.jpg"
+    ],
+    "thumb": "scenes/living/_thumb.jpg"
+  },
+  "sala-jardin": {
+    "images": [
+      "scenes/sala-jardin/01.png",
+      "scenes/sala-jardin/02.png",
+      "scenes/sala-jardin/03.png"
+    ],
+    "thumb": "scenes/sala-jardin/_thumb.jpg"
+  }
+}
