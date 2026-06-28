@@ -12,12 +12,12 @@ import {
 const def = getScene(DEFAULT_SCENE_ID)
 
 describe('App', () => {
-  it('arranca por defecto en la galería, mostrando 03.png', () => {
+  it('arranca por defecto en la galería, mostrando 03.jpg', () => {
     render(<App />)
     expect(DEFAULT_SCENE_ID).toBe('galeria')
     const stage = screen.getByRole('img', { name: new RegExp(def.title) })
     expect(stage).toBeInTheDocument()
-    expect(stage.style.backgroundImage).toContain('galeria/03.png')
+    expect(stage.style.backgroundImage).toContain('galeria/03.jpg')
   })
 
   it('avanza a la siguiente habitación con la flecha', () => {

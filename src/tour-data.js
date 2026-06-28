@@ -27,7 +27,7 @@ const SCENE_META = [
     id: 'galeria',
     title: 'Galería',
     subtitle: 'Galería-comedor con vitral, ventanales y vista al jardín',
-    cover: 'scenes/galeria/03.png', // imagen que se muestra primero en esta escena
+    cover: 'scenes/galeria/03.jpg', // imagen que se muestra primero en esta escena
     plan: { x: 4, y: 3, w: 4, h: 3 },
     hotspots: [
       { to: 'living', label: 'Volver al living', x: 12, y: 60 },

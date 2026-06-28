@@ -1,13 +1,13 @@
 {
   "cocina": {
     "images": [
-      "scenes/cocina/frame_0115-hires.png",
-      "scenes/cocina/frame_0116-hires.png",
-      "scenes/cocina/frame_0117-hires.png",
-      "scenes/cocina/frame_0118-hires.png",
-      "scenes/cocina/frame_0119-hires.png",
-      "scenes/cocina/frame_0120-hires.png",
-      "scenes/cocina/frame_0123-hires.png"
+      "scenes/cocina/frame_0115-hires.jpg",
+      "scenes/cocina/frame_0116-hires.jpg",
+      "scenes/cocina/frame_0117-hires.jpg",
+      "scenes/cocina/frame_0118-hires.jpg",
+      "scenes/cocina/frame_0119-hires.jpg",
+      "scenes/cocina/frame_0120-hires.jpg",
+      "scenes/cocina/frame_0123-hires.jpg"
     ],
     "thumb": "scenes/cocina/_thumb.jpg"
   },
@@ -46,33 +46,33 @@
   },
   "galeria": {
     "images": [
-      "scenes/galeria/01.png",
-      "scenes/galeria/02.png",
-      "scenes/galeria/03.png",
-      "scenes/galeria/04.png",
-      "scenes/galeria/05.png",
-      "scenes/galeria/06.png"
+      "scenes/galeria/01.jpg",
+      "scenes/galeria/02.jpg",
+      "scenes/galeria/03.jpg",
+      "scenes/galeria/04.jpg",
+      "scenes/galeria/05.jpg",
+      "scenes/galeria/06.jpg"
     ],
     "thumb": "scenes/galeria/_thumb.jpg"
   },
   "jardin-central": {
     "images": [
-      "scenes/jardin-central/01.png",
-      "scenes/jardin-central/02.png"
+      "scenes/jardin-central/01.jpg",
+      "scenes/jardin-central/02.jpg"
     ],
     "thumb": "scenes/jardin-central/_thumb.jpg"
   },
   "lavadero": {
     "images": [
-      "scenes/lavadero/01.png",
-      "scenes/lavadero/02.png",
-      "scenes/lavadero/03.png"
+      "scenes/lavadero/01.jpg",
+      "scenes/lavadero/02.jpg",
+      "scenes/lavadero/03.jpg"
     ],
     "thumb": "scenes/lavadero/_thumb.jpg"
   },
   "living": {
     "images": [
-      "scenes/living/frame_0001.png",
+      "scenes/living/frame_0001.jpg",
       "scenes/living/frame_0004.jpg",
       "scenes/living/frame_0005.jpg",
       "scenes/living/frame_0006.jpg",
@@ -83,9 +83,9 @@
   },
   "sala-jardin": {
     "images": [
-      "scenes/sala-jardin/01.png",
-      "scenes/sala-jardin/02.png",
-      "scenes/sala-jardin/03.png"
+      "scenes/sala-jardin/01.jpg",
+      "scenes/sala-jardin/02.jpg",
+      "scenes/sala-jardin/03.jpg"
     ],
     "thumb": "scenes/sala-jardin/_thumb.jpg"
   }

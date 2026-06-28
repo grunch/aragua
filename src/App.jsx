@@ -12,6 +12,7 @@ import RoomMenu from './components/RoomMenu.jsx'
 import PropertyInfo from './components/PropertyInfo.jsx'
 import LocationMap from './components/LocationMap.jsx'
 import FloorPlan from './components/FloorPlan.jsx'
+import ShareBar from './components/ShareBar.jsx'
 
 export default function App() {
   const [currentId, setCurrentId] = useState(DEFAULT_SCENE_ID)
@@ -99,6 +100,8 @@ export default function App() {
         <FloorPlan scenes={scenes} currentId={currentId} onSelect={goTo} />
 
         <PropertyInfo property={property} />
+
+        <ShareBar title={property.title} price={property.price} />
 
         <LocationMap
           lat={property.coords.lat}

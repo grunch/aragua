@@ -490,6 +490,22 @@ body {
 }
 
 /* ---------- Footer ---------- */
+/* ---------- Compartir ---------- */
+.share {
+  max-width: var(--maxw);
+  margin: 1rem auto 0;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+.share__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+.share__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
 /* ---------- Plano interactivo ---------- */
 .floorplan {
   max-width: var(--maxw);
