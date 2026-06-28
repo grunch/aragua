@@ -434,6 +434,111 @@ body {
 }
 
 /* ---------- Footer ---------- */
+/* ---------- Plano interactivo ---------- */
+.floorplan {
+  max-width: var(--maxw);
+  margin: 1rem auto 0;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+.floorplan__title {
+  margin: 0 0 0.2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+.floorplan__hint {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.floorplan__grid {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  /* El color de fondo hace de "muros" entre los bloques. */
+  background: var(--bg);
+  border: 2px solid var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.floorplan__room {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.3rem;
+  border: 2px solid var(--bg);
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  font-size: clamp(0.62rem, 1.7vw, 0.9rem);
+  font-weight: 600;
+  line-height: 1.15;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.12s ease;
+}
+.floorplan__room:hover {
+  background: var(--surface);
+  z-index: 1;
+}
+.floorplan__room:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: -3px;
+  z-index: 2;
+}
+.floorplan__room.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+/* Marcador "estás aquí" en la habitación actual. */
+.floorplan__room.is-active::after {
+  content: '📍';
+  position: absolute;
+  top: 0.2rem;
+  right: 0.3rem;
+  font-size: 0.95em;
+  line-height: 1;
+}
+.floorplan__room-name {
+  pointer-events: none;
+}
+
+/* ---------- Ubicación / mapa ---------- */
+.location {
+  max-width: var(--maxw);
+  margin: 1rem auto 0;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+.location__title {
+  margin: 0 0 0.2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+.location__coords {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.location__map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.location__map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.location__link {
+  margin-top: 1rem;
+  display: inline-block;
+}
+
 .footer {
   margin-top: auto;
   padding: 1.5rem;

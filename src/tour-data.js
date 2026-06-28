@@ -20,6 +20,7 @@ const SCENE_META = [
     id: 'living',
     title: 'Living',
     subtitle: 'Sala principal con sofá y grandes ventanales al jardín',
+    plan: { x: 0, y: 3, w: 4, h: 3 },
     hotspots: [{ to: 'galeria', label: 'Ir a la galería', x: 20, y: 55 }],
   },
   {
@@ -27,6 +28,7 @@ const SCENE_META = [
     title: 'Galería',
     subtitle: 'Galería-comedor con vitral, ventanales y vista al jardín',
     cover: 'scenes/galeria/03.png', // imagen que se muestra primero en esta escena
+    plan: { x: 4, y: 3, w: 4, h: 3 },
     hotspots: [
       { to: 'living', label: 'Volver al living', x: 12, y: 60 },
       { to: 'cocina', label: 'Ir a la cocina', x: 60, y: 40 },
@@ -38,6 +40,7 @@ const SCENE_META = [
     id: 'cocina',
     title: 'Cocina',
     subtitle: 'Equipada con estufa de gas, horno y microondas',
+    plan: { x: 8, y: 0, w: 4, h: 3 },
     hotspots: [
       { to: 'galeria', label: 'Volver a la galería', x: 15, y: 35 },
       { to: 'lavadero', label: 'Ir al lavadero', x: 82, y: 55 },
@@ -47,12 +50,14 @@ const SCENE_META = [
     id: 'lavadero',
     title: 'Lavadero',
     subtitle: 'Área de lavado con lavarropas y espacio de servicio',
+    plan: { x: 8, y: 3, w: 4, h: 3 },
     hotspots: [{ to: 'cocina', label: 'Volver a la cocina', x: 70, y: 40 }],
   },
   {
     id: 'cuarto-1',
     title: 'Cuarto 1 · Estudio',
     subtitle: 'Habitación con estantería y biblioteca',
+    plan: { x: 0, y: 0, w: 4, h: 3 },
     hotspots: [
       { to: 'galeria', label: 'Volver a la galería', x: 12, y: 45 },
       { to: 'cuarto-2', label: 'Cuarto 2', x: 80, y: 50 },
@@ -62,6 +67,7 @@ const SCENE_META = [
     id: 'cuarto-2',
     title: 'Cuarto 2 · Recámara',
     subtitle: 'Habitación con clóset amplio y buena luz natural',
+    plan: { x: 4, y: 0, w: 4, h: 3 },
     hotspots: [
       { to: 'cuarto-1', label: 'Cuarto 1', x: 18, y: 40 },
       { to: 'cuarto-3', label: 'Cuarto 3', x: 55, y: 45 },
@@ -87,18 +93,24 @@ const SCENE_META = [
     id: 'sala-jardin',
     title: 'Sala jardín',
     subtitle: 'Patio cubierto con piso de loseta, junto al jardín',
+    plan: { x: 0, y: 6, w: 6, h: 3 },
     hotspots: [{ to: 'jardin-central', label: 'Ir al jardín', x: 80, y: 55 }],
   },
   {
     id: 'jardin-central',
     title: 'Jardín central',
     subtitle: 'Patio jardín con cantero, plantas y mucho sol',
+    plan: { x: 6, y: 6, w: 6, h: 3 },
     hotspots: [
       { to: 'sala-jardin', label: 'Sala jardín', x: 15, y: 50 },
       { to: 'galeria', label: 'Volver a la galería', x: 82, y: 35 },
     ],
   },
 ]
+
+// Dimensiones de la grilla del plano interactivo (FloorPlan). Cada escena define
+// su rectángulo `plan` en estas unidades; el componente lo convierte a %.
+export const FLOORPLAN = { width: 12, height: 9 }
 
 // Combina metadatos + manifiesto y descarta escenas sin imágenes todavía.
 const withImages = SCENE_META.map((meta) => {
@@ -126,6 +138,7 @@ export const property = {
   price: 'Precio a consultar', // EDITAR: p. ej. "$2,450,000 MXN"
   title: 'Casa amplia con galería y jardín',
   location: 'Ubicación por confirmar', // EDITAR: colonia, ciudad
+  coords: { lat: 9.453724, lng: -64.82869 }, // Coordenadas de la casa para el mapa
   highlights: [
     { label: 'Cuartos', value: '4' }, // EDITAR
     { label: 'Baños', value: '1' }, // EDITAR

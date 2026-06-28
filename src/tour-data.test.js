@@ -6,6 +6,7 @@ import {
   getSceneIndex,
   nextScene,
   prevScene,
+  FLOORPLAN,
 } from './tour-data.js'
 
 describe('grafo de escenas', () => {
@@ -76,6 +77,42 @@ describe('helpers de navegación', () => {
   it('next/prev devuelven undefined para id inexistente', () => {
     expect(nextScene('no-existe')).toBeUndefined()
     expect(prevScene('no-existe')).toBeUndefined()
+  })
+})
+
+describe('plano interactivo (floorplan)', () => {
+  it('expone una grilla con dimensiones positivas', () => {
+    expect(FLOORPLAN.width).toBeGreaterThan(0)
+    expect(FLOORPLAN.height).toBeGreaterThan(0)
+  })
+
+  it('cada bloque del plano cabe dentro de la grilla', () => {
+    for (const s of scenes) {
+      if (!s.plan) continue
+      const { x, y, w, h } = s.plan
+      expect(w).toBeGreaterThan(0)
+      expect(h).toBeGreaterThan(0)
+      expect(x).toBeGreaterThanOrEqual(0)
+      expect(y).toBeGreaterThanOrEqual(0)
+      expect(x + w).toBeLessThanOrEqual(FLOORPLAN.width)
+      expect(y + h).toBeLessThanOrEqual(FLOORPLAN.height)
+    }
+  })
+
+  it('los bloques del plano no se solapan entre sí', () => {
+    const rooms = scenes.filter((s) => s.plan)
+    for (let i = 0; i < rooms.length; i++) {
+      for (let j = i + 1; j < rooms.length; j++) {
+        const a = rooms[i].plan
+        const b = rooms[j].plan
+        const disjoint =
+          a.x + a.w <= b.x ||
+          b.x + b.w <= a.x ||
+          a.y + a.h <= b.y ||
+          b.y + b.h <= a.y
+        expect(disjoint).toBe(true)
+      }
+    }
   })
 })
 

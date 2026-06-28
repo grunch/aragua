@@ -56,7 +56,19 @@ describe('App', () => {
   it('salta a una habitación desde el menú de miniaturas', () => {
     render(<App />)
     const objetivo = scenes.find((s) => s.id !== DEFAULT_SCENE_ID)
-    fireEvent.click(screen.getByText(objetivo.title))
+    // El título también aparece en el plano, por eso acotamos al menú.
+    const menu = screen.getByRole('navigation', { name: 'Habitaciones' })
+    fireEvent.click(within(menu).getByText(objetivo.title))
+    expect(
+      screen.getByRole('img', { name: new RegExp(objetivo.title) })
+    ).toBeInTheDocument()
+  })
+
+  it('salta a una habitación desde el plano interactivo', () => {
+    render(<App />)
+    const objetivo = scenes.find((s) => s.id !== DEFAULT_SCENE_ID && s.plan)
+    const plano = screen.getByRole('group', { name: /Plano interactivo/ })
+    fireEvent.click(within(plano).getByRole('button', { name: new RegExp(objetivo.title) }))
     expect(
       screen.getByRole('img', { name: new RegExp(objetivo.title) })
     ).toBeInTheDocument()

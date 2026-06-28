@@ -10,6 +10,8 @@ import {
 import SceneViewer from './components/SceneViewer.jsx'
 import RoomMenu from './components/RoomMenu.jsx'
 import PropertyInfo from './components/PropertyInfo.jsx'
+import LocationMap from './components/LocationMap.jsx'
+import FloorPlan from './components/FloorPlan.jsx'
 
 export default function App() {
   const [currentId, setCurrentId] = useState(DEFAULT_SCENE_ID)
@@ -94,7 +96,15 @@ export default function App() {
           <RoomMenu scenes={scenes} currentId={currentId} onSelect={goTo} />
         </section>
 
+        <FloorPlan scenes={scenes} currentId={currentId} onSelect={goTo} />
+
         <PropertyInfo property={property} />
+
+        <LocationMap
+          lat={property.coords.lat}
+          lng={property.coords.lng}
+          title={property.title}
+        />
       </main>
 
       <footer className="footer">
