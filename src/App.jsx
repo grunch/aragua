@@ -15,6 +15,7 @@ import LocationMap from './components/LocationMap.jsx'
 import FloorPlan from './components/FloorPlan.jsx'
 import ShareBar from './components/ShareBar.jsx'
 import TourProgress from './components/TourProgress.jsx'
+import ThemeToggle from './components/ThemeToggle.jsx'
 
 export default function App() {
   const [currentId, setCurrentId] = useState(DEFAULT_SCENE_ID)
@@ -62,6 +63,7 @@ export default function App() {
         <div className="topbar__meta">
           <span className="badge badge--sm">{property.type}</span>
           <span className="topbar__price">{property.price}</span>
+          <ThemeToggle />
         </div>
       </header>
 
