@@ -4,11 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1f2933" />
+
+    <!--
+      EDITAR: URL pública del sitio. Las etiquetas Open Graph necesitan URLs
+      ABSOLUTAS para que el preview (WhatsApp, Facebook, etc.) muestre la
+      imagen. Si usás un dominio propio, reemplazá esta base en todas las
+      etiquetas de abajo (canonical, og:url, og:image, twitter:image y JSON-LD).
+    -->
+    <title>Casa en venta · Tour virtual con galería y jardín</title>
     <meta
       name="description"
-      content="Tour virtual interactivo: recorre la casa habitación por habitación. Sala, comedor, recámaras, cocina y terraza."
+      content="Casa amplia en venta con galería-comedor, cocina equipada, varios cuartos y jardín central. Recorré la casa habitación por habitación en este tour virtual interactivo."
     />
-    <title>Tour Virtual · Casa en venta</title>
+    <link rel="canonical" href="https://grunch.github.io/aragua/" />
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn...) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Tour Virtual de la Casa" />
+    <meta property="og:title" content="Casa en venta · Tour virtual con galería y jardín" />
+    <meta
+      property="og:description"
+      content="Casa amplia con galería-comedor, cocina equipada, varios cuartos y jardín central. Recorrela habitación por habitación."
+    />
+    <meta property="og:url" content="https://grunch.github.io/aragua/" />
+    <meta property="og:image" content="https://grunch.github.io/aragua/scenes/galeria/03.jpg" />
+    <meta property="og:image:alt" content="Galería-comedor de la casa con vitral y ventanales" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Casa en venta · Tour virtual con galería y jardín" />
+    <meta
+      name="twitter:description"
+      content="Casa amplia con galería-comedor, cocina equipada, varios cuartos y jardín central. Recorrela habitación por habitación."
+    />
+    <meta name="twitter:image" content="https://grunch.github.io/aragua/scenes/galeria/03.jpg" />
+
+    <!-- Datos estructurados (schema.org) para buscadores -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SingleFamilyResidence",
+        "name": "Casa amplia con galería y jardín",
+        "description": "Casa de generosas proporciones con galería-comedor iluminada por grandes ventanales y un vitral decorativo, pisos de loseta terracota, cuartos amplios, cocina equipada y jardín central soleado.",
+        "url": "https://grunch.github.io/aragua/",
+        "image": "https://grunch.github.io/aragua/scenes/galeria/03.jpg",
+        "numberOfRooms": 4,
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 9.453724,
+          "longitude": -64.82869
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
