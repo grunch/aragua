@@ -26,6 +26,7 @@ const SCENE_META = [
     id: 'galeria',
     title: 'Galería',
     subtitle: 'Galería-comedor con vitral, ventanales y vista al jardín',
+    cover: 'scenes/galeria/03.png', // imagen que se muestra primero en esta escena
     hotspots: [
       { to: 'living', label: 'Volver al living', x: 12, y: 60 },
       { to: 'cocina', label: 'Ir a la cocina', x: 60, y: 40 },
@@ -102,10 +103,13 @@ const SCENE_META = [
 // Combina metadatos + manifiesto y descarta escenas sin imágenes todavía.
 const withImages = SCENE_META.map((meta) => {
   const entry = manifest[meta.id] || { images: [], thumb: null }
+  // Imagen inicial: la marcada como `cover` si existe en el manifiesto, si no la 1ª.
+  const startIndex = meta.cover ? entry.images.indexOf(meta.cover) : -1
   return {
     ...meta,
     images: entry.images,
     thumb: entry.thumb || entry.images[0] || null,
+    startIndex: startIndex >= 0 ? startIndex : 0,
   }
 }).filter((scene) => scene.images.length > 0)
 
@@ -152,6 +156,12 @@ export const property = {
   // Video original del recorrido (se copia a /public en el build).
   video: 'casa.mp4',
 }
+
+// Escena que se muestra al abrir el sitio (la galería; si no tuviera fotos,
+// cae a la primera escena disponible).
+export const DEFAULT_SCENE_ID = scenes.some((s) => s.id === 'galeria')
+  ? 'galeria'
+  : scenes[0].id
 
 /** Devuelve la escena por id, o undefined si no existe. */
 export function getScene(id) {

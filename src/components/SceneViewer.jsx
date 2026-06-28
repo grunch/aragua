@@ -7,12 +7,12 @@ import { useEffect, useState } from 'react'
  * @param {{ scene: object, onNavigate: (id: string) => void }} props
  */
 export default function SceneViewer({ scene, onNavigate }) {
-  const [imageIndex, setImageIndex] = useState(0)
+  const [imageIndex, setImageIndex] = useState(scene.startIndex ?? 0)
 
-  // Al cambiar de habitación, volver a la primera foto.
+  // Al cambiar de habitación, mostrar su imagen inicial (cover o la primera).
   useEffect(() => {
-    setImageIndex(0)
-  }, [scene.id])
+    setImageIndex(scene.startIndex ?? 0)
+  }, [scene.id, scene.startIndex])
 
   const images = scene.images
   const hasGallery = images.length > 1

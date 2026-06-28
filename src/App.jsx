@@ -1,11 +1,18 @@
 import { useCallback, useEffect, useState } from 'react'
-import { scenes, property, getScene, nextScene, prevScene } from './tour-data.js'
+import {
+  scenes,
+  property,
+  getScene,
+  nextScene,
+  prevScene,
+  DEFAULT_SCENE_ID,
+} from './tour-data.js'
 import SceneViewer from './components/SceneViewer.jsx'
 import RoomMenu from './components/RoomMenu.jsx'
 import PropertyInfo from './components/PropertyInfo.jsx'
 
 export default function App() {
-  const [currentId, setCurrentId] = useState(scenes[0].id)
+  const [currentId, setCurrentId] = useState(DEFAULT_SCENE_ID)
   const [showVideo, setShowVideo] = useState(false)
   const scene = getScene(currentId)
 
