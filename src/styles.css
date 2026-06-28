@@ -10,6 +10,8 @@
   --radius: 14px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   --maxw: 1180px;
+  --topbar-bg: rgba(17, 22, 28, 0.85);
+  --topbar-border: rgba(255, 255, 255, 0.06);
   color-scheme: dark;
   font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
 }
@@ -24,6 +26,8 @@
   --accent: #b96a2c;
   --accent-2: #9a5616;
   --shadow: 0 10px 30px rgba(40, 30, 15, 0.15);
+  --topbar-bg: rgba(255, 255, 255, 0.85);
+  --topbar-border: rgba(40, 30, 15, 0.1);
   color-scheme: light;
 }
 
@@ -85,12 +89,12 @@ body {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem clamp(1rem, 4vw, 2.5rem);
-  background: rgba(17, 22, 28, 0.85);
+  background: var(--topbar-bg);
   backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 30;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--topbar-border);
 }
 .topbar__brand {
   display: flex;
