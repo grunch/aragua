@@ -3,6 +3,7 @@ import {
   scenes,
   property,
   getScene,
+  getSceneIndex,
   nextScene,
   prevScene,
   DEFAULT_SCENE_ID,
@@ -13,6 +14,7 @@ import PropertyInfo from './components/PropertyInfo.jsx'
 import LocationMap from './components/LocationMap.jsx'
 import FloorPlan from './components/FloorPlan.jsx'
 import ShareBar from './components/ShareBar.jsx'
+import TourProgress from './components/TourProgress.jsx'
 
 export default function App() {
   const [currentId, setCurrentId] = useState(DEFAULT_SCENE_ID)
@@ -93,6 +95,8 @@ export default function App() {
               ▶ Ver recorrido en video
             </button>
           </div>
+
+          <TourProgress index={getSceneIndex(currentId)} total={scenes.length} />
 
           <RoomMenu scenes={scenes} currentId={currentId} onSelect={goTo} />
         </section>
